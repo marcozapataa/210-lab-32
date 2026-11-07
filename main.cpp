@@ -12,10 +12,10 @@ const int INITIAL_Q_SIZE = 2;
 int main() {
     srand(time(nullptr));
 
-    // create car object to be placed in the deque
+    // create deque to store Car objects
     deque<Car> myCars;
 
-    // for loop to populate deque with car objects
+    // populate deque with initial cars
     for (int i = 0; i < INITIAL_Q_SIZE; i++) {
         myCars.push_back(Car());
     }
@@ -26,7 +26,7 @@ int main() {
         car.print();
     }
 
-    // intialize the time period counter
+    // initialize the time period counter
     int timePeriod = 0;
 
     // continue the simulation while cars are still in the queue
@@ -42,7 +42,7 @@ int main() {
             cout << " Operation: Car paid: " 
                  << "[" << frontElement.getYear()
                  << " " << frontElement.getMake()
-                 << "(" << frontElement.getTransponder() << ")]";
+                 << " (" << frontElement.getTransponder() << ")]";
             // remove the first car when it pays the toll
             myCars.pop_front();
         }
