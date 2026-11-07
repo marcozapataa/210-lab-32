@@ -47,12 +47,30 @@ int main() {
             myCars.pop_front();
         }
         else {
+            // add a car to the back of the queue
             myCars.push_back(Car());
+            Car& backElement = myCars.back();
+            cout << " Operation: Joined lane: "
+                 << "[" << backElement.getYear()
+                 << " " << backElement.getMake()
+                 << " (" << backElement.getTransponder() << ")]";
         }
 
-        for (Car& car : myCars) {
-            car.print();
+        // display the updated queue after each operation
+        cout << "\nQueue: " << endl;
+
+        // check if the deque is empty
+        if (myCars.empty()) {
+            cout << "   Empty" << endl;
         }
+        else {
+            // display the remaining cars in the queue
+            for (Car& car : myCars) {
+                car.print();
+            }
+
+        }
+        
     }
 
     return 0;
